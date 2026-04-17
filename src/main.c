@@ -1,5 +1,5 @@
 #include "graph/graph.h"
-#include "priorityQueue/priorityQueue.h"
+#include "priorityQueue/PriorityQueue.h"
 #include <stdio.h>
 #include <stdlib.h>
 
