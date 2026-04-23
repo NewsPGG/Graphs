@@ -1,14 +1,14 @@
 #pragma once
 
 typedef struct Edge {
-  int to;
-  int weight;
-  struct Edge *next;
+    int to;
+    int weight;
+    struct Edge* next;
 } Edge;
 
 typedef struct {
-  int n;
-  Edge** adj;
+    int n;
+    Edge** adj;
 } Graph;
 
 // Allocates a graph and initializes adjacency lists for n cities
