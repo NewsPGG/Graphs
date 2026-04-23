@@ -3,13 +3,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+int main()
+{
   int n, m, k;
   if (scanf("%d %d", &n, &m) != 2) {
     return 0;
   }
 
-  Graph *g = create_graph(n);
+  Graph* g = create_graph(n);
   for (int i = 0; i < m; i++) {
     int u, v, w;
     scanf("%d %d %d", &u, &v, &w);
@@ -17,9 +18,9 @@ int main() {
   }
 
   scanf("%d", &k);
-  int *capitals = malloc(k * sizeof(int));
-  int *owner = calloc(n + 1, sizeof(int));
-  PriorityQueue *pq = create_pq(m * 2 + k);
+  int* capitals = malloc(k * sizeof(int));
+  int* owner = calloc(n + 1, sizeof(int));
+  PriorityQueue* pq = create_pq(m * 2 + k);
 
   for (int i = 0; i < k; i++) {
     scanf("%d", &capitals[i]);
@@ -28,7 +29,7 @@ int main() {
 
   for (int i = 0; i < k; i++) {
     int cap = capitals[i];
-    for (Edge *e = g->adj[cap]; e; e = e->next) {
+    for (Edge* e = g->adj[cap]; e; e = e->next) {
       if (!owner[e->to])
         push(pq, e->weight, e->to, i + 1);
     }
@@ -44,7 +45,7 @@ int main() {
     owner[top.city] = top.state_id;
     assigned++;
 
-    for (Edge *e = g->adj[top.city]; e; e = e->next) {
+    for (Edge* e = g->adj[top.city]; e; e = e->next) {
       if (!owner[e->to]) {
         push(pq, e->weight, e->to, top.state_id);
       }

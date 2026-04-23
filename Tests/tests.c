@@ -1,10 +1,11 @@
-#include "graph/graph.h"
-#include "priorityQueue/PriorityQueue.h"
+#include "../src/graph/graph.h"
+#include "../src/priorityQueue/PriorityQueue.h"
 #include <assert.h>
 #include <stdio.h>
 
-void test_pq_basic_order() {
-  PriorityQueue *pq = create_pq(10);
+void test_pq_basic_order()
+{
+  PriorityQueue* pq = create_pq(10);
 
   push(pq, 100, 1, 1);
   push(pq, 10, 2, 1);
@@ -17,8 +18,9 @@ void test_pq_basic_order() {
   free_pq(pq);
 }
 
-void test_pq_same_distances() {
-  PriorityQueue *pq = create_pq(10);
+void test_pq_same_distances()
+{
+  PriorityQueue* pq = create_pq(10);
 
   push(pq, 20, 1, 1);
   push(pq, 20, 2, 2);
@@ -35,8 +37,9 @@ void test_pq_same_distances() {
   free_pq(pq);
 }
 
-void test_pq_single_element() {
-  PriorityQueue *pq = create_pq(5);
+void test_pq_single_element()
+{
+  PriorityQueue* pq = create_pq(5);
 
   push(pq, 42, 10, 2);
 
@@ -49,8 +52,9 @@ void test_pq_single_element() {
   free_pq(pq);
 }
 
-void test_graph_creation() {
-  Graph *g = create_graph(100);
+void test_graph_creation()
+{
+  Graph* g = create_graph(100);
 
   assert(g->n == 100);
   assert(g->adj[1] == NULL);
@@ -59,8 +63,9 @@ void test_graph_creation() {
   free_graph(g);
 }
 
-void test_graph_edges() {
-  Graph *g = create_graph(5);
+void test_graph_edges()
+{
+  Graph* g = create_graph(5);
 
   add_edge(g, 1, 2, 15);
 
@@ -70,10 +75,11 @@ void test_graph_edges() {
   free_graph(g);
 }
 
-void test_pq_stress() {
+void test_pq_stress()
+{
   int count = 1000;
 
-  PriorityQueue *pq = create_pq(count);
+  PriorityQueue* pq = create_pq(count);
 
   for (int i = count; i > 0; i--) {
     push(pq, i, i, 1);
@@ -87,8 +93,9 @@ void test_pq_stress() {
   free_pq(pq);
 }
 
-void test_pq_state_integrity() {
-  PriorityQueue *pq = create_pq(10);
+void test_pq_state_integrity()
+{
+  PriorityQueue* pq = create_pq(10);
 
   push(pq, 10, 1, 101);
   push(pq, 5, 2, 202);
@@ -101,7 +108,8 @@ void test_pq_state_integrity() {
   free_pq(pq);
 }
 
-int main() {
+int main()
+{
   test_pq_basic_order();
   test_pq_same_distances();
   test_pq_single_element();
