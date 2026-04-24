@@ -79,7 +79,7 @@ int main()
     }
 
     free(capitals);
-    free(owner);g
+    free(owner);
     if (pq->data) {
         free(pq->data);
     }
