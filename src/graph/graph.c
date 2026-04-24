@@ -3,10 +3,10 @@
 
 Graph* create_graph(int n)
 {
-    Graph* gpaph = malloc(sizeof(Graph));
-    gpaph->n = n;
-    gpaph->adj = calloc(n + 1, sizeof(Edge*));
-    return gpaph;
+    Graph* graph = malloc(sizeof(Graph));
+    graph->n = n;
+    graph->adj = calloc(n + 1, sizeof(Edge*));
+    return graph;
 }
 
 void add_edge(Graph* graph, int u, int v, int w)
