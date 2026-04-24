@@ -5,7 +5,7 @@
 
 int main()
 {
-    FILE *file = fopen("input.txt", "r");
+    FILE* file = fopen("input.txt", "r");
     if (file == NULL) {
         perror("Ошибка при открытии файла");
         return 1;
@@ -53,7 +53,9 @@ int main()
     int assigned = k;
     while (pq->size > 0 && assigned < n) {
         Node top = pop(pq);
-        if (owner[top.city]) continue;
+        if (owner[top.city]) {
+            continue;
+        }
 
         owner[top.city] = top.state_id;
         assigned++;
@@ -70,7 +72,9 @@ int main()
         int first = 1;
         for (int c = 1; c <= n; c++) {
             if (owner[c] == i) {
-                if (!first) printf(" ");
+                if (!first) {
+                    printf(" ");
+                }
                 printf("%d", c);
                 first = 0;
             }
